@@ -1,26 +1,5 @@
 /**
- * Visual Blocks Language
- *
- * Copyright 2012 Google Inc.
- * http://code.google.com/p/blockly/
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-/**
- * @fileoverview Helper functions for generating Arduino for blocks.
- * @author gasolin@gmail.com (Fred Lin)
- * @author2 Jesús Lens Costa
+ * @author Jesus Lens Costa
  */
 'use strict';
 
@@ -49,7 +28,6 @@ Blockly.Arduino.addReservedWords(
 
 /**
  * Order of operation ENUMs.
- *
  */
 Blockly.Arduino.ORDER_ATOMIC = 0;         // 0 "" ...
 Blockly.Arduino.ORDER_UNARY_POSTFIX = 1;  // expr++ expr-- () [] .
@@ -70,6 +48,7 @@ Blockly.Arduino.ORDER_NONE = 99;          // (...)
 
 Blockly.Arduino.CONTADOR = 1;
 Blockly.Arduino.TH = false;
+Blockly.Arduino.LISTA = '';
 
 /*
  * Arduino Board profiles
@@ -103,18 +82,16 @@ Blockly.Arduino.init = function(workspace) {
   Blockly.Arduino.setups_ = Object.create(null);
 
 	if (!Blockly.Arduino.variableDB_) {
-		Blockly.Arduino.variableDB_ =
-				new Blockly.Names(Blockly.Arduino.RESERVED_WORDS_);
-	} else {
+		Blockly.Arduino.variableDB_ = new Blockly.Names(Blockly.Arduino.RESERVED_WORDS_);
+	} 
+	else {
 		Blockly.Arduino.variableDB_.reset();
 	}
 
 	var defvars = [];
 	var variables = Blockly.Variables.allVariables(workspace);
 	for (var x = 0; x < variables.length; x++) {
-		defvars[x] = 'int ' +
-				Blockly.Arduino.variableDB_.getName(variables[x],
-				Blockly.Variables.NAME_TYPE) + ';\n';
+		defvars[x] = 'int ' + Blockly.Arduino.variableDB_.getName(variables[x], Blockly.Variables.NAME_TYPE) + ';\n';
 	}
 	Blockly.Arduino.definitions_['variables'] = defvars.join('\n');
 };
@@ -127,17 +104,26 @@ Blockly.Arduino.init = function(workspace) {
 Blockly.Arduino.finish = function(code) {
   // Indent every line.
   code = '  ' + code.replace(/\n/g, '\n  ');
-  code = code.replace(/\n\s+$/, '\n');
+  code = code.replace(/\n\s+$/, '\n'); 
   
+  var bucleInterno = ''; 
+  var i;
+  for (i=0; i<Blockly.Arduino.CONTADOR-1; i++){
+	  bucleInterno = bucleInterno + '        case ' + (i+1) + ':\n          programa' + (i+1) + '();\n          break;\n';
+  }
+  
+  var bucle = '  for(i=0; i<numThreads; i++){\n    if(threads[i] != 0){\n      switch (i+1) {\n' + bucleInterno + '      }\n    }\n  }';
+ 
   if(Blockly.Arduino.TH == true){
-	  code = 'void loop() \n{\n' + '  controlador.run();' + '\n}';
+	  code = 'void loop() \n{\n' + bucle + '\n}';
   }
   else{
 	  code = 'void loop() \n{\n' + code + '\n}';
-  }  
+  }   
   
   Blockly.Arduino.CONTADOR = 1;
   Blockly.Arduino.TH == false;
+  Blockly.Arduino.LISTA = '';
 
   // Convert the definitions dictionary into a list.
   var imports = [];

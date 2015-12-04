@@ -46,7 +46,7 @@ var selected = 'blocks';
 
 /**
  * Hace visible el panel correspondiente cuando una pestaña es seleccioanda.
- * @param {string} clickedName Nombre de la pestaña seleccionada al hacer clic.
+ * @param {string} clickedName Nombre de la pestaÃ±a seleccionada al hacer clic.
  */
 function tabClick(clickedName) {
 
@@ -109,7 +109,7 @@ function getBBox_(element) {
  
 
 /**
- * Inicialiaza Blockly. Funcion llamada al cargar la página.
+ * Inicialiaza Blockly. Funcion llamada al cargar la pÃ¡gina.
  */
 function init() {
   var container = document.getElementById('content_area');
@@ -131,7 +131,7 @@ function init() {
     if (Blockly.mainWorkspace.toolbox_.width) {
       document.getElementById('tab_blocks').style.minWidth =
           (Blockly.mainWorkspace.toolbox_.width - 36) + 'px';
-          // Contador para el margen de 19 píxeles en cada lado.
+          // Contador para el margen de 19 pixeles en cada lado.
     }    
   };
   window.addEventListener('resize', onresize, false);
@@ -189,7 +189,7 @@ function download() {
       cursor: pointer;
       border-color: #111 !important;
       background-color: #bbb;
-      background-image: url("m5.png");
+      background-image: url("m1-act.png");
       padding: 10px 19px;  
       text-align: center;   
     }
@@ -200,13 +200,13 @@ function download() {
     }
     td.taboff {
       cursor: pointer; 
-      background-image: url("m1-act.png");  
+      background-image: url("m1.png");  
       padding: 5px 19px;
       text-align: center;
     }
     td.taboff:hover {
       cursor: pointer; 
-      background-image: url("m5.png");  
+      background-image: url("m1-act.png");  
       background-color: #aaa;   
       text-align: center;   
     }
@@ -314,10 +314,20 @@ function download() {
 	}
 	
 	.formaBoton {
+		cursor: pointer;
 		border-radius: 5px;	
 		padding-left: 15px;
-		padding-right: 15px;    
+		padding-right: 15px;   
 	}
+    
+	.formaBotonRojo {
+		cursor: pointer;
+		border-radius: 5px;	
+		padding-left: 17px;
+		padding-right: 17px;  
+		padding-top: 20px;  
+		padding-bottom: 21px; 
+	}    
     
     /*ANARANJADO*/
 	.anaranjado {	
@@ -378,7 +388,7 @@ function download() {
 </head>
 
 
-<body background="header.jpg" onload="init()">
+<body background="header-bg.jpg" onload="init()">
   <table height="100%" width="100%">
     <tr height="80px">
       <td>
@@ -390,7 +400,7 @@ function download() {
       				<a href="../../../../../home.html" style="text-decoration:none" target="_blank"><FONT class="h1"><I>EasyArduino</I></FONT></a>         			
          		</td>         		
          		<td class="tabmax">
-         			<button onclick="discard()" class="boton colorRojo formaBoton">Borrar</button> 
+         			<button onclick="discard()" class="boton colorRojo formaBotonRojo">Borrar</button> 
          		</td>
          		<td class="tabmin">&nbsp;</td>
          		<td class="tabmax">

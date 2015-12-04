@@ -1,5 +1,5 @@
 /**
-* @author Jesús Lens Costa
+* @author Jesus Lens Costa
 */
 
 'use strict';
@@ -139,7 +139,7 @@ Blockly.Arduino.thread_size = function() {
 
 
 //Inicio Programa
-Blockly.Arduino.inicio = function() {	  
+Blockly.Arduino.inicio2 = function() {	  
 
 	  var branch = Blockly.Arduino.statementToCode(this, 'BLOQ');
 	  var interval = this.getTitleValue('NUM');
@@ -211,12 +211,53 @@ Blockly.Arduino.ejecutar_intervalo = function() {
 };
 
 //Eliminar Programa
-Blockly.Arduino.eliminar = function() {	  
+Blockly.Arduino.eliminar2 = function() {	  
 	  var contador = Blockly.Arduino.CONTADOR;
 	  	  
 	  var code = 'controlador.remove(&programa'+contador+');\n';
 	  return code;
 };
 
+
+//Inicio Programa sin arduino thread 
+Blockly.Arduino.inicio = function() {	  
+
+	  var branch = Blockly.Arduino.statementToCode(this, 'BLOQ');
+	  var interval = this.getTitleValue('NUM');
+	  
+	  Blockly.Arduino.TH = true;
+	 	 
+	  var contador = Blockly.Arduino.CONTADOR;
+	  var thread = contador;
+	  if(contador == 1){
+		  Blockly.Arduino.LISTA = Blockly.Arduino.LISTA + thread;
+	  }
+	  else{
+		  Blockly.Arduino.LISTA = Blockly.Arduino.LISTA + ', ' + thread;
+	  }
+	    
+	  var lista = Blockly.Arduino.LISTA;
+	  
+	  var remove = '  for(i=0; i<numThreads; i++){\n    if(i+1 == id){\n      threads[i] = 0;\n    }\n  }  \n';
+	  
+	  Blockly.Arduino.definitions_['define_threads'] = 'int threads[] = {' + lista + '};\n';
+	  Blockly.Arduino.definitions_['define_numThreads'] = 'int numThreads = ' + contador + ';\n';
+	  Blockly.Arduino.definitions_['int_variable'] = 'int i;\n';	  	  
+	  Blockly.Arduino.definitions_['remove_'] = 'void remove(int id){\n'+remove+'}\n';
+	  Blockly.Arduino.definitions_['void_'+contador] = 'void programa'+contador+'(){\n'+branch+'}\n';
+	  	  
+	  Blockly.Arduino.CONTADOR++;
+	    	
+	  return '';
+};
+
+
+//Eliminar Programa sin arduino thread
+Blockly.Arduino.eliminar = function() {	  
+	  var contador = Blockly.Arduino.CONTADOR;
+ 
+	  var code = 'remove('+contador+');\n';
+	  return code;
+};
 
 

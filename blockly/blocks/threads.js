@@ -1,5 +1,5 @@
 /**
-*@author Jesús Lens Costa
+*@author Jesus Lens Costa
 */
 
 'use strict';
@@ -193,10 +193,6 @@ Blockly.Blocks['inicio'] = {
 			        .appendTitle(new Blockly.FieldImage("../../media/inicio.png", 44, 24))
 			        .appendField("      ")
 			    this.appendStatementInput('BLOQ');
-			 //   this.appendDummyInput("")
-			 //   	.setAlign(Blockly.ALIGN_RIGHT)
-		     //  	.appendField("Ejecutar cada [ms] ")
-		     //   	.appendField(new Blockly.FieldTextInput('0', Blockly.FieldTextInput.numberValidator), 'NUM'); 
 			    this.setTooltip('Inicio de un programa');
 		  }
 };

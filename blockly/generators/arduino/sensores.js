@@ -1,5 +1,5 @@
 /**
- * @author Jesús Lens Costa
+ * @author Jesus Lens Costa
  */
 
 goog.provide('Blockly.Arduino.sensores');
