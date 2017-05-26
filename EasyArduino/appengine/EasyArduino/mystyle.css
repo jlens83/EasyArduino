@@ -1,0 +1,212 @@
+    /* Tabs */
+    #tabRow>td {
+    	border-radius: 11px 11px 0 0;
+    }
+    td.tabon {
+      cursor: pointer;
+      border-color: #111 !important;
+      background-color: #bbb;
+      background-image: url("../../media/m1-act.png");
+      padding: 10px 19px;  
+      text-align: center;   
+    }
+    td.tabon:hover {
+      cursor: pointer;  
+      background-color: #aaa;   
+      text-align: center;   
+    }
+    td.taboff {
+      cursor: pointer; 
+      background-image: url("../../media/m1.png");  
+      padding: 5px 19px;
+      text-align: center;
+    }
+    td.taboff:hover {
+      cursor: pointer; 
+      background-image: url("../../media/m1-act.png");  
+      background-color: #aaa;   
+      text-align: center;   
+    }
+    
+    td.tabmax {
+      border-top-style: none !important;
+      border-left-style: none !important;
+      border-right-style: none !important;
+      width: 99%;
+      text-align: right;
+    }
+
+	table {
+      border-collapse: collapse;
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+    
+    td {
+      padding: 0;    
+	  vertical-align: middle;	  
+    }
+    
+
+    .content {
+      visibility: hidden;
+      margin: 0;
+      padding: 1ex;
+      position: absolute;
+      direction: ltr;
+    }
+    pre.content {
+      overflow: scroll;
+    }
+    #content_blocks {
+      padding: 0;
+    }
+    .blocklySvg {
+      border-top: none !important;
+	  height: 100%;
+      width: 100%;
+    }
+    #content_xml {
+      resize: none;
+      outline: none;
+      border: none;
+      font-family: monospace;
+      overflow: scroll;
+    }
+
+
+	.logo {
+	  font-weight: bold;
+	  font-size: 52px;
+	  font-family: "Arial";
+	  text-shadow: 0 1px 0 #ccc, 
+	               0 2px 0 #c9c9c9,
+	               0 3px 0 #bbb,
+	               0 4px 0 #b9b9b9,
+	               0 5px 0 #aaa,
+	               0 6px 1px rgba(0,0,0,.1),
+	               0 0 5px rgba(0,0,0,.1),
+	               0 1px 3px rgba(0,0,0,.3),
+	               0 3px 5px rgba(0,0,0,.2),
+	               0 5px 10px rgba(0,0,0,.25),
+	               0 10px 10px rgba(0,0,0,.2),
+	               0 20px 20px rgba(0,0,0,.15);
+	  color: #FFF;
+	  text-align: center;
+	}
+
+	.con_estilos {
+		width: 110px;
+		padding: 5px;
+		font-size: 16px;
+		color: white;
+		font-weight: bold;
+		border: none;
+		border-radius: 4px 4px 4px 4px;
+		height: 30px;
+		background-color:#2A5768;
+		background-image: url("../../media/m1-act.png");
+	}
+
+	
+	.boton {
+		text-decoration: none;
+		color: #fff;
+		font-weight: bold;
+		padding: 12px 20px;
+		font-size: 15px;
+		border-radius: 10px;
+		background-color: #666666;	
+		box-shadow: 0 5px 5px #313131, 0 9px 0 #393939, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 9px rgba(255,255,255,0.2), inset 0 -2px 9px rgba(0,0,0,0.2);
+		position: relative;
+		border-top: 1px solid rgba(255,255,255,0.2);
+		border-right: 1px solid rgba(255,255,255,0.2);
+		border-left: 1px solid rgba(255,255,255,0.2);
+		border-bottom: 1px solid rgba(255,255,255,0.2);
+		display: inline-block;
+		font-family: Arial, Helvetica, sans;
+		text-shadow: 0px -1px 0px rgba(0,0,0,0.2);
+	}
+	
+	.boton:hover {
+		box-shadow: 0 5px 5px #313131, 0 9px 0 #393939, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 15px rgba(255,255,255,0.4), inset 0 -2px 9px rgba(0,0,0,0.2);
+		color: #fff !important;
+	}
+	
+	.boton:active {
+		top: 7px;
+		box-shadow: 0 2px 0 #393939, 0px 4px 4px rgba(0,0,0,0.4), inset 0px 2px 5px rgba(0,0,0,0.2);	
+		color: #fff !important;
+	}
+	
+	.formaBoton {
+		cursor: pointer;
+		border-radius: 5px;	
+		padding-left: 15px;
+		padding-right: 15px;   
+	}
+    
+	.formaBotonRojo {
+		cursor: pointer;
+		border-radius: 5px;	
+		padding-left: 17px;
+		padding-right: 17px;  
+		padding-top: 20px;  
+		padding-bottom: 21px; 
+	}    
+    
+    /*ANARANJADO*/
+	.anaranjado {	
+		background-color: #c37846;	
+		box-shadow: 0 5px 5px #855031, 0 9px 0 #5e3a25, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 9px rgba(255,255,255,0.2), inset 0 -2px 9px rgba(0,0,0,0.2);
+	}
+	
+	.anaranjado:hover {
+		box-shadow: 0 5px 5px #855031, 0 9px 0 #5e3a25, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 15px rgba(255,255,255,0.4), inset 0 -2px 9px rgba(0,0,0,0.2);	
+	}
+	
+	.anaranjado:active {
+		box-shadow: 0 2px 0 #5e3a25, 0px 4px 4px rgba(0,0,0,0.4), inset 0px 2px 5px rgba(0,0,0,0.2);
+	}
+	
+	/*Rojo*/
+	.colorRojo {	
+	background-color: #c34747;	
+	box-shadow: 0 5px 5px #853232, 0 9px 0 #5e2525, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 9px rgba(255,255,255,0.2), inset 0 -2px 9px rgba(0,0,0,0.2);
+	}
+	
+	.colorRojo:hover {
+		box-shadow: 0 5px 5px #853232, 0 9px 0 #5e2525, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 15px rgba(255,255,255,0.4), inset 0 -2px 9px rgba(0,0,0,0.2);
+	}
+	
+	.colorRojo:active {
+		box-shadow: 0 2px 0 #5e2525, 0px 4px 4px rgba(0,0,0,0.4), inset 0px 2px 5px rgba(0,0,0,0.2);
+	}
+	
+	/*VERDE*/
+	.verde {	
+		background-color: #7fc345;	
+		box-shadow: 0 5px 5px #508530, 0 9px 0 #385e25, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 9px rgba(255,255,255,0.2), inset 0 -2px 9px rgba(0,0,0,0.2);
+	}
+	
+	.verde:hover {
+		box-shadow: 0 5px 5px #508530, 0 9px 0 #385e25, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 15px rgba(255,255,255,0.4), inset 0 -2px 9px rgba(0,0,0,0.2);
+	}
+	
+	.verde:active {
+		box-shadow: 0 2px 0 #385e25, 0px 4px 4px rgba(0,0,0,0.4), inset 0px 2px 5px rgba(0,0,0,0.2);	
+	}
+	
+	/*AZUL*/
+	.azul {
+		background: #2a8ad8;
+		box-shadow: 0 5px 5px #364a8e, 0 9px 0 #25325e, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 9px rgba(255,255,255,0.2), inset 0 -2px 9px rgba(0,0,0,0.2);
+	}
+	
+	.azul:hover {
+		box-shadow: 0 5px 5px #364a8e, 0 9px 0 #25325e, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 15px rgba(255,255,255,0.4), inset 0 -2px 9px rgba(0,0,0,0.2);
+	}
+	.azul:active {
+		box-shadow: 0 2px 0 #25325e, 0px 4px 4px rgba(0,0,0,0.3), inset 0px 2px 5px rgba(0,0,0,0.2);
+	}
